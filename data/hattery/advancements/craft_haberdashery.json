@@ -1,0 +1,14 @@
+{
+    "__comment": "Made with TheDestruc7i0n's advancements generator: https://advancements.thedestruc7i0n.ca",
+    "criteria": {
+        "craftedhaberdashery": {
+            "trigger": "minecraft:recipe_unlocked",
+            "conditions": {
+                "recipe": "hattery:haberdashery"
+            }
+        }
+    },
+    "rewards": {
+        "function": "hattery:crafting/book/haberdashery.func"
+    }
+}

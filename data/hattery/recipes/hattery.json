@@ -1,0 +1,22 @@
+{
+    "type": "crafting_shaped",
+    "pattern": [
+      "#X#",
+      "XOX",
+      "#X#"
+    ],
+    "key": {
+      "#": {
+        "item": "minecraft:leather"
+      },
+      "X": {
+        "tag": "minecraft:planks"
+      },
+      "O": {
+        "item": "minecraft:iron_nugget"
+      }
+    },
+    "result": {
+      "item": "minecraft:knowledge_book"
+    }
+  }
