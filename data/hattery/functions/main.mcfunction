@@ -1,4 +1,5 @@
 ## Detect first join
+execute as @a unless entity @s[scores={hattery.id.util=..10000}] run tag @s remove hattery.joined
 execute as @a[tag=!hattery.joined] run function hattery:id
 
 
@@ -9,7 +10,7 @@ execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:leather_helmet", tag:{
 
 # Armor Stands
 execute as @e[type=minecraft:armor_stand,nbt={ArmorItems:[{id:"minecraft:leather_helmet",tag:{helm:1b}}]}] run function hattery:equip.func
-# Replace brick item in player's hand wioth helm item.
+# Replace brick item in player's hand with helm item.
 # Top Hat
 execute as @a[nbt={SelectedItem:{id:"minecraft:brick",tag:{hat.tophat:1b}}}] run item replace entity @s weapon.mainhand with leather_helmet{display:{Name:'{"text":"Top Hat","color":"white","bold":true,"italic":false}'},CustomModelData:254011,helm.tophat:1b,helm:1b}
 # Wizard
@@ -28,7 +29,7 @@ execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat.witch:1b}}]}] unl
 ## remove tophat
 execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat.tophat:1b}}]}] unless entity @s[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.tophat:1b}}]}] run function hattery:remove.util/top.remove.util
 
-## remove chef
+## remove Baker
 execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat.baker:1b}}]}] unless entity @s[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.baker:1b}}]}] run function hattery:remove.util/baker.remove.util
 
 
@@ -62,7 +63,7 @@ execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat:1b}}]}] run funct
 ## Wizard light
 execute as @e[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]}] at @s run function hattery:abilities/wizard/light.func
 execute as @e[nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]}] at @s if block ~ ~1 ~ minecraft:light run function hattery:abilities/wizard/light_remove.func
-execute as @e[type=armor_stand,tag=light] at @s unless entity @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]},limit=1,distance=..2.3,sort=nearest] run function hattery:abilities/wizard/light_remove.func
+execute as @e[type=minecraft:marker,tag=light] at @s unless entity @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]},limit=1,distance=..2.5,sort=nearest] run function hattery:abilities/wizard/light_remove.func
 
 ## Witch cat
 execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},x_rotation=-90,tag=!hascat,tag=!familiar.cooldown] at @s if predicate hattery:sneak_check.pred run function hattery:abilities/witch/familiar
@@ -73,7 +74,7 @@ execute as @e[type=item,nbt={Item:{id: "minecraft:clay_ball",tag:{killxp:1b}}}] 
 
 execute as @e[type=marker,tag=familiar.util] at @s unless entity @e[type=cat,tag=familiar,distance=..1] run tag @s add cat.dead
 execute as @a if score @s hattery.id.util = @e[type=marker,tag=familiar.util,tag=cat.dead,limit=1] hattery.id.util run function hattery:abilities/witch/haha_familiar_go_poof
-execute as @a[tag=hascat,nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]}] run function hattery:abilities/witch/poof_familiar
+execute as @a[tag=hascat,nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]}] at @s as @e[type=minecraft:marker,tag=familiar.util] if score @s hattery.id.util = @p hattery.id.util run function hattery:abilities/witch/poof_familiar
 
 
 
@@ -86,5 +87,3 @@ execute as @e[type=minecraft:glow_item_frame,tag=hattery_table] at @s if entity 
 
 
 
-## EDGECASE TIME!!!! FUN!!! WOOOO!!! EVERYONE LOVES EDGECASES!!!!
-#execute as @e[type=minecraft:armor_stand,tag=haberdash] at @s run kill @e[type=minecraft:glow_item_frame,tag=hattery_table,tag=!placed,limit=1,sort=nearest]

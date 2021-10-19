@@ -4,11 +4,11 @@
         "craftedcake": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "cake"
+                "recipe": "cake.h"
             }
         }
     },
     "rewards": {
-        "function": "hattery:abilities/cake.crft"
+        "function": "hattery:abilities/baker/cake.crft"
     }
 }

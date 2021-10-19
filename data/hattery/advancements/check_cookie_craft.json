@@ -4,11 +4,11 @@
         "craftedcookie": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "cookie"
+                "recipe": "cookie.h"
             }
         }
     },
     "rewards": {
-        "function": "hattery:abilities/cookie.crft"
+        "function": "hattery:abilities/baker/cookie.crft"
     }
 }

@@ -4,11 +4,11 @@
         "craftedbread": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "bread"
+                "recipe": "bread.h"
             }
         }
     },
     "rewards": {
-        "function": "hattery:abilities/bread.crft"
+        "function": "hattery:abilities/baker/bread.crft"
     }
 }

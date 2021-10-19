@@ -4,11 +4,11 @@
         "craftedpie": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "pumpkin_pie"
+                "recipe": "minecraft:pumpkin_pie.h"
             }
         }
     },
     "rewards": {
-        "function": "hattery:abilities/pie.crft"
+        "function": "hattery:abilities/baker/pie.crft"
     }
 }
