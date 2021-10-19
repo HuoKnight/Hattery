@@ -1,0 +1,6 @@
+Wizard's Hat: 254000
+Witch's Hat: 254001
+Tophat: 254011
+Baker's Hat: 254111
+Haberdashery: 254112
+Hattery Table: 254122
