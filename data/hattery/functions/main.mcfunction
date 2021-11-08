@@ -1,6 +1,6 @@
-## Detect first join
-execute as @a unless entity @s[scores={hattery.id.util=..10000}] run tag @s remove hattery.joined
-execute as @a[tag=!hattery.joined] run function hattery:id
+## Detect first join {Used for cat, unused code}
+#execute as @a unless entity @s[scores={hattery.id.util=..10000}] run tag @s remove hattery.joined
+#execute as @a[tag=!hattery.joined] run function hattery:id
 
 
 ## Hat functionality
@@ -57,25 +57,15 @@ execute as @e[type=item,nbt={Item:{id:"minecraft:brick",tag:{hat.wizard:1b}}}] r
 execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat:1b}}]}] run function hattery:abilities/particles.func
 
 
-
-
+## Witch
+execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},tag=!sat.cooldown] at @s if block ~ ~ ~ minecraft:cauldron run function hattery:abilities/witch/saturation
+execute as @a[tag=sat.cooldown] run scoreboard players add @s witch.cooldown 1
+execute as @a[tag=sat.cooldown,scores={witch.cooldown=12000..}] run function hattery:abilities/witch/saturation_refresh
 
 ## Wizard light
 execute as @e[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]}] at @s run function hattery:abilities/wizard/light.func
 execute as @e[nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]}] at @s if block ~ ~1 ~ minecraft:light run function hattery:abilities/wizard/light_remove.func
 execute as @e[type=minecraft:marker,tag=light] at @s unless entity @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]},limit=1,distance=..2.5,sort=nearest] run function hattery:abilities/wizard/light_remove.func
-
-## Witch cat
-execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},x_rotation=-90,tag=!hascat,tag=!familiar.cooldown] at @s if predicate hattery:sneak_check.pred run function hattery:abilities/witch/familiar
-execute as @a[tag=familiar.cooldown] run scoreboard players add @s catcooldown 1
-execute as @a[tag=familiar.cooldown,scores={catcooldown=6000..}] run function hattery:abilities/witch/familiar_refresh
-execute as @e[type=item,nbt={Item:{id: "minecraft:clay_ball",tag:{killxp:1b}}}] at @s run kill @e[type=minecraft:experience_orb,distance=..3]
-execute as @e[type=item,nbt={Item:{id: "minecraft:clay_ball",tag:{killxp:1b}}}] run kill @s
-
-execute as @e[type=marker,tag=familiar.util] at @s unless entity @e[type=cat,tag=familiar,distance=..1] run tag @s add cat.dead
-execute as @a if score @s hattery.id.util = @e[type=marker,tag=familiar.util,tag=cat.dead,limit=1] hattery.id.util run function hattery:abilities/witch/haha_familiar_go_poof
-execute as @a[tag=hascat,nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]}] at @s as @e[type=minecraft:marker,tag=familiar.util] if score @s hattery.id.util = @p hattery.id.util run function hattery:abilities/witch/poof_familiar
-
 
 
 ## Crafting
@@ -84,6 +74,13 @@ execute as @e[type=minecraft:glow_item_frame,tag=hattery_table] at @s if entity 
 
 
 
+## Witch cat {cut from pack, unused code}
 
-
-
+#execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},x_rotation=-90,tag=!hascat,tag=!familiar.cooldown] at @s if predicate hattery:sneak_check.pred run function hattery:abilities/witch/familiar
+#execute as @a[tag=familiar.cooldown] run scoreboard players add @s catcooldown 1
+#execute as @a[tag=familiar.cooldown,scores={catcooldown=6000..}] run function hattery:abilities/witch/familiar_refresh
+#execute as @e[type=item,nbt={Item:{id: "minecraft:clay_ball",tag:{killxp:1b}}}] at @s run kill @e[type=minecraft:experience_orb,distance=..3]
+#execute as @e[type=item,nbt={Item:{id: "minecraft:clay_ball",tag:{killxp:1b}}}] run kill @s
+#execute as @e[type=marker,tag=familiar.util] at @s unless entity @e[type=cat,tag=familiar,distance=..1] run tag @s add cat.dead
+#execute as @a if score @s hattery.id.util = @e[type=marker,tag=familiar.util,tag=cat.dead,limit=1] hattery.id.util run function hattery:abilities/witch/haha_familiar_go_poof
+#execute as @a[tag=hascat,nbt=!{Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]}] at @s as @e[type=minecraft:marker,tag=familiar.util] if score @s #hattery.id.util = @p hattery.id.util run function hattery:abilities/witch/poof_familiar
