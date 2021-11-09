@@ -58,9 +58,9 @@ execute as @a[nbt={Inventory:[{id: "minecraft:brick", tag:{hat:1b}}]}] run funct
 
 
 ## Witch
-execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},tag=!sat.cooldown] at @s if block ~ ~ ~ minecraft:cauldron run function hattery:abilities/witch/saturation
-execute as @a[tag=sat.cooldown] run scoreboard players add @s witch.cooldown 1
-execute as @a[tag=sat.cooldown,scores={witch.cooldown=12000..}] run function hattery:abilities/witch/saturation_refresh
+execute as @a[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.witch:1b}}]},tag=!str.cooldown] at @s if block ~ ~ ~ minecraft:cauldron run function hattery:abilities/witch/strength
+execute as @a[tag=str.cooldown] run scoreboard players add @s witch.cooldown 1
+execute as @a[tag=str.cooldown,scores={witch.cooldown=12000..}] run function hattery:abilities/witch/strength_refresh
 
 ## Wizard light
 execute as @e[nbt={Inventory:[{Slot: 103b, id: "minecraft:brick", tag:{hat.wizard:1b}}]}] at @s run function hattery:abilities/wizard/light.func

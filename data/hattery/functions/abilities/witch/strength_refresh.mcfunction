@@ -1,2 +1,2 @@
-tag @s remove sat.cooldown
+tag @s remove str.cooldown
 scoreboard players set @s witch.cooldown 0
